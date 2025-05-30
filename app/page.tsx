@@ -1,31 +1,40 @@
+"use client"
 import Link from "next/link"
 import { ArrowRight, CheckCircle, Mail, MessageSquare, Star, Trophy, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import WaitlistForm from "@/components/waitlist-form"
+import { smoothScrollTo } from "@/lib/utils"
 
 export default function LandingPage() {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault()
+    smoothScrollTo(id)
+  }
+
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-white">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
-            <Mail className="h-6 w-6 text-azure-600" />
-            <span className="text-xl font-bold text-azure-900">Inbox Athletics</span>
+            <img src="/inbox-athletics-logo-250x50.png" alt="Inbox Athletics" />
           </div>
           <nav className="hidden md:flex gap-6">
-            <Link href="#features" className="text-sm font-medium text-azure-900 hover:text-azure-600">
+            <Link href="#features"
+                  onClick={(e) => handleNavClick(e, "features")}
+                  className="text-sm font-medium text-azure-900 hover:text-azure-600">
               Features
             </Link>
-            <Link href="#how-it-works" className="text-sm font-medium text-azure-900 hover:text-azure-600">
+            <Link href="#how-it-works"
+                  onClick={(e) => handleNavClick(e, "how-it-works")}
+                  className="text-sm font-medium text-azure-900 hover:text-azure-600">
               How It Works
-            </Link>
-            <Link href="#testimonials" className="text-sm font-medium text-azure-900 hover:text-azure-600">
-              Testimonials
             </Link>
           </nav>
           <div>
             <Button className="bg-azure-600 hover:bg-azure-700">
-              <Link href="#waitlist">Join Waitlist</Link>
+              <Link href="#waitlist"
+                    onClick={(e) => handleNavClick(e, "waitlist")}
+              >Join Waitlist</Link>
             </Button>
           </div>
         </div>
@@ -46,10 +55,15 @@ export default function LandingPage() {
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Button className="bg-azure-600 hover:bg-azure-700">
-                    <Link href="#waitlist">Join Waitlist</Link>
+                    <Link href="#waitlist"
+                          onClick={(e) => handleNavClick(e, "waitlist")}
+                    >Join Waitlist</Link>
                   </Button>
                   <Button variant="outline" className="border-azure-600 text-azure-600 hover:bg-azure-50">
-                    <Link href="#features" className="flex items-center">
+                    <Link href="#features"
+                          onClick={(e) => handleNavClick(e, "features")}
+                          className="flex items-center"
+                    >
                       Learn More <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
@@ -85,12 +99,12 @@ export default function LandingPage() {
                         </div>
                       </div>
                     </div>
-                    <div className="mt-auto flex items-center justify-between border-t border-azure-100 pt-4">
-                      <span className="text-sm text-azure-700">2 action items</span>
-                      <Button size="sm" className="bg-azure-600 hover:bg-azure-700">
-                        View All
-                      </Button>
-                    </div>
+                    {/*<div className="mt-auto flex items-center justify-between border-t border-azure-100 pt-4">*/}
+                    {/*  <span className="text-sm text-azure-700">2 action items</span>*/}
+                    {/*  <Button size="sm" className="bg-azure-600 hover:bg-azure-700">*/}
+                    {/*    View All*/}
+                    {/*  </Button>*/}
+                    {/*</div>*/}
                   </div>
                 </div>
               </div>
@@ -162,7 +176,7 @@ export default function LandingPage() {
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-center gap-2">
                     <CheckCircle className="h-4 w-4 text-azure-600" />
-                    <span>Message templates</span>
+                    <span>AI-Assisted messaging</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle className="h-4 w-4 text-azure-600" />
@@ -261,92 +275,8 @@ export default function LandingPage() {
                           <CheckCircle className="h-4 w-4 text-azure-600" />
                           <span className="text-sm">Reply to Coach Thompson</span>
                         </li>
-                        <li className="flex items-center gap-2 rounded-lg border border-azure-100 p-2">
-                          <CheckCircle className="h-4 w-4 text-azure-600" />
-                          <span className="text-sm">Update highlight reel</span>
-                        </li>
                       </ul>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-azure-100 px-3 py-1 text-sm text-azure-800">
-                  Testimonials
-                </div>
-                <h2 className="text-3xl font-bold tracking-tighter text-azure-900 sm:text-5xl">
-                  What Student-Athletes Say
-                </h2>
-                <p className="max-w-[900px] text-azure-700 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Hear from student-athletes who have transformed their recruiting journey with Inbox Athletics.
-                </p>
-              </div>
-            </div>
-            <div className="mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-3 lg:gap-12">
-              <div className="flex flex-col justify-between space-y-4 rounded-lg border border-azure-100 bg-white p-6 shadow-sm">
-                <div>
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-azure-400 text-azure-400" />
-                    ))}
-                  </div>
-                  <p className="mt-4 text-azure-700">
-                    "Inbox Athletics completely changed my recruiting experience. I went from feeling overwhelmed to
-                    confident and organized."
-                  </p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="h-10 w-10 rounded-full bg-azure-200"></div>
-                  <div>
-                    <p className="font-medium text-azure-900">Sarah J.</p>
-                    <p className="text-sm text-azure-600">Soccer, Class of 2024</p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col justify-between space-y-4 rounded-lg border border-azure-100 bg-white p-6 shadow-sm">
-                <div>
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-azure-400 text-azure-400" />
-                    ))}
-                  </div>
-                  <p className="mt-4 text-azure-700">
-                    "The smart reminders helped me stay on top of coach communications. I never missed an important
-                    follow-up."
-                  </p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="h-10 w-10 rounded-full bg-azure-200"></div>
-                  <div>
-                    <p className="font-medium text-azure-900">Marcus T.</p>
-                    <p className="text-sm text-azure-600">Basketball, Class of 2023</p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col justify-between space-y-4 rounded-lg border border-azure-100 bg-white p-6 shadow-sm">
-                <div>
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-azure-400 text-azure-400" />
-                    ))}
-                  </div>
-                  <p className="mt-4 text-azure-700">
-                    "Having all my coach communications in one place made it easy to track my progress and make informed
-                    decisions."
-                  </p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="h-10 w-10 rounded-full bg-azure-200"></div>
-                  <div>
-                    <p className="font-medium text-azure-900">Emma R.</p>
-                    <p className="text-sm text-azure-600">Volleyball, Class of 2024</p>
                   </div>
                 </div>
               </div>
@@ -397,8 +327,7 @@ export default function LandingPage() {
       <footer className="w-full border-t bg-white py-6">
         <div className="container flex flex-col items-center justify-between gap-4 px-4 md:flex-row md:px-6">
           <div className="flex items-center gap-2">
-            <Mail className="h-5 w-5 text-azure-600" />
-            <span className="text-lg font-bold text-azure-900">Inbox Athletics</span>
+            <img src="/inbox-athletics-logo-no-tagline-250x40.png" alt="Inbox Athletics" />
           </div>
           <p className="text-center text-sm text-azure-700 md:text-left">
             &copy; {new Date().getFullYear()} Inbox Athletics. All rights reserved.
