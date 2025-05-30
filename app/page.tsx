@@ -27,9 +27,6 @@ export default function LandingPage() {
                   className="text-sm font-medium text-azure-900 hover:text-azure-600">
               How It Works
             </Link>
-            <Link href="#testimonials" className="text-sm font-medium text-azure-900 hover:text-azure-600">
-              Testimonials
-            </Link>
           </nav>
           <div>
             <Button className="bg-azure-600 hover:bg-azure-700">
@@ -282,86 +279,6 @@ export default function LandingPage() {
                         </li>
                       </ul>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-azure-100 px-3 py-1 text-sm text-azure-800">
-                  Testimonials
-                </div>
-                <h2 className="text-3xl font-bold tracking-tighter text-azure-900 sm:text-5xl">
-                  What Student-Athletes Say
-                </h2>
-                <p className="max-w-[900px] text-azure-700 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Hear from student-athletes who have transformed their recruiting journey with Inbox Athletics.
-                </p>
-              </div>
-            </div>
-            <div className="mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-3 lg:gap-12">
-              <div className="flex flex-col justify-between space-y-4 rounded-lg border border-azure-100 bg-white p-6 shadow-sm">
-                <div>
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-azure-400 text-azure-400" />
-                    ))}
-                  </div>
-                  <p className="mt-4 text-azure-700">
-                    "Inbox Athletics completely changed my recruiting experience. I went from feeling overwhelmed to
-                    confident and organized."
-                  </p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="h-10 w-10 rounded-full bg-azure-200"></div>
-                  <div>
-                    <p className="font-medium text-azure-900">Sarah J.</p>
-                    <p className="text-sm text-azure-600">Soccer, Class of 2024</p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col justify-between space-y-4 rounded-lg border border-azure-100 bg-white p-6 shadow-sm">
-                <div>
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-azure-400 text-azure-400" />
-                    ))}
-                  </div>
-                  <p className="mt-4 text-azure-700">
-                    "The smart reminders helped me stay on top of coach communications. I never missed an important
-                    follow-up."
-                  </p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="h-10 w-10 rounded-full bg-azure-200"></div>
-                  <div>
-                    <p className="font-medium text-azure-900">Marcus T.</p>
-                    <p className="text-sm text-azure-600">Basketball, Class of 2023</p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col justify-between space-y-4 rounded-lg border border-azure-100 bg-white p-6 shadow-sm">
-                <div>
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-azure-400 text-azure-400" />
-                    ))}
-                  </div>
-                  <p className="mt-4 text-azure-700">
-                    "Having all my coach communications in one place made it easy to track my progress and make informed
-                    decisions."
-                  </p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="h-10 w-10 rounded-full bg-azure-200"></div>
-                  <div>
-                    <p className="font-medium text-azure-900">Emma R.</p>
-                    <p className="text-sm text-azure-600">Volleyball, Class of 2024</p>
                   </div>
                 </div>
               </div>
