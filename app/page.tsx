@@ -97,12 +97,12 @@ export default function LandingPage() {
                         </div>
                       </div>
                     </div>
-                    <div className="mt-auto flex items-center justify-between border-t border-azure-100 pt-4">
-                      <span className="text-sm text-azure-700">2 action items</span>
-                      <Button size="sm" className="bg-azure-600 hover:bg-azure-700">
-                        View All
-                      </Button>
-                    </div>
+                    {/*<div className="mt-auto flex items-center justify-between border-t border-azure-100 pt-4">*/}
+                    {/*  <span className="text-sm text-azure-700">2 action items</span>*/}
+                    {/*  <Button size="sm" className="bg-azure-600 hover:bg-azure-700">*/}
+                    {/*    View All*/}
+                    {/*  </Button>*/}
+                    {/*</div>*/}
                   </div>
                 </div>
               </div>
@@ -272,10 +272,6 @@ export default function LandingPage() {
                         <li className="flex items-center gap-2 rounded-lg border border-azure-100 p-2">
                           <CheckCircle className="h-4 w-4 text-azure-600" />
                           <span className="text-sm">Reply to Coach Thompson</span>
-                        </li>
-                        <li className="flex items-center gap-2 rounded-lg border border-azure-100 p-2">
-                          <CheckCircle className="h-4 w-4 text-azure-600" />
-                          <span className="text-sm">Update highlight reel</span>
                         </li>
                       </ul>
                     </div>
