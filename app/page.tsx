@@ -13,8 +13,7 @@ export default function LandingPage() {
       <header className="sticky top-0 z-50 w-full border-b bg-white">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
-            <Mail className="h-6 w-6 text-azure-600" />
-            <span className="text-xl font-bold text-azure-900">Inbox Athletics</span>
+            <img src="/inbox-athletics-logo-250x50.png" alt="Inbox Athletics" />
           </div>
           <nav className="hidden md:flex gap-6">
             <Link href="#features"
@@ -325,8 +324,7 @@ export default function LandingPage() {
       <footer className="w-full border-t bg-white py-6">
         <div className="container flex flex-col items-center justify-between gap-4 px-4 md:flex-row md:px-6">
           <div className="flex items-center gap-2">
-            <Mail className="h-5 w-5 text-azure-600" />
-            <span className="text-lg font-bold text-azure-900">Inbox Athletics</span>
+            <img src="/inbox-athletics-logo-no-tagline-250x40.png" alt="Inbox Athletics" />
           </div>
           <p className="text-center text-sm text-azure-700 md:text-left">
             &copy; {new Date().getFullYear()} Inbox Athletics. All rights reserved.
