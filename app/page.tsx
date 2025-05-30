@@ -174,7 +174,7 @@ export default function LandingPage() {
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-center gap-2">
                     <CheckCircle className="h-4 w-4 text-azure-600" />
-                    <span>Message templates</span>
+                    <span>AI-Assisted messaging</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle className="h-4 w-4 text-azure-600" />
