@@ -1,0 +1,17 @@
+{
+  "name": "Inbox Athletics",
+  "short_name": "Inbox Athletics",
+  "description": "Recruiting intelligence for student-athletes",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#063674",
+  "icons": [
+    {
+      "src": "/inbox-athletics-square-500x500.png",
+      "sizes": "500x500",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
