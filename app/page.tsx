@@ -1,9 +1,13 @@
+"use client"
 import Link from "next/link"
 import { ArrowRight, CheckCircle, Mail, MessageSquare, Star, Trophy, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import WaitlistForm from "@/components/waitlist-form"
+import { smoothScrollTo } from "@/lib/utils"
 
 export default function LandingPage() {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault()
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-white">
@@ -13,10 +17,14 @@ export default function LandingPage() {
             <span className="text-xl font-bold text-azure-900">Inbox Athletics</span>
           </div>
           <nav className="hidden md:flex gap-6">
-            <Link href="#features" className="text-sm font-medium text-azure-900 hover:text-azure-600">
+            <Link href="#features"
+                  onClick={(e) => handleNavClick(e, "features")}
+                  className="text-sm font-medium text-azure-900 hover:text-azure-600">
               Features
             </Link>
-            <Link href="#how-it-works" className="text-sm font-medium text-azure-900 hover:text-azure-600">
+            <Link href="#how-it-works"
+                  onClick={(e) => handleNavClick(e, "how-it-works")}
+                  className="text-sm font-medium text-azure-900 hover:text-azure-600">
               How It Works
             </Link>
             <Link href="#testimonials" className="text-sm font-medium text-azure-900 hover:text-azure-600">
@@ -25,7 +33,9 @@ export default function LandingPage() {
           </nav>
           <div>
             <Button className="bg-azure-600 hover:bg-azure-700">
-              <Link href="#waitlist">Join Waitlist</Link>
+              <Link href="#waitlist"
+                    onClick={(e) => handleNavClick(e, "waitlist")}
+              >Join Waitlist</Link>
             </Button>
           </div>
         </div>
@@ -46,10 +56,15 @@ export default function LandingPage() {
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Button className="bg-azure-600 hover:bg-azure-700">
-                    <Link href="#waitlist">Join Waitlist</Link>
+                    <Link href="#waitlist"
+                          onClick={(e) => handleNavClick(e, "waitlist")}
+                    >Join Waitlist</Link>
                   </Button>
                   <Button variant="outline" className="border-azure-600 text-azure-600 hover:bg-azure-50">
-                    <Link href="#features" className="flex items-center">
+                    <Link href="#features"
+                          onClick={(e) => handleNavClick(e, "features")}
+                          className="flex items-center"
+                    >
                       Learn More <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
