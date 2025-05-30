@@ -8,6 +8,9 @@ import { smoothScrollTo } from "@/lib/utils"
 export default function LandingPage() {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault()
+    smoothScrollTo(id)
+  }
+
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-white">
