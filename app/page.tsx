@@ -132,11 +132,11 @@ export default function LandingPage() {
                 <div className="relative h-[350px] w-full overflow-hidden rounded-xl bg-azure-100 p-4 shadow-lg">
                   <div className="absolute inset-0 bg-gradient-to-br from-azure-200/50 to-azure-400/30"></div>
                   <div className="relative z-10 flex h-full flex-col gap-4 rounded-lg bg-white p-6 shadow-sm">
-                    <div className="flex items-center gap-2 border-b border-azure-100 pb-4">
+                    <div className="flex items-center gap-2 border-b border-azure-100 pb-2">
                       <MessageSquare className="h-5 w-5 text-azure-600" />
                       <h3 className="text-lg font-semibold text-azure-900">Coach Messages</h3>
                     </div>
-                    <div className="space-y-4">
+                    <div className="space-y-3">
                       <div className="rounded-lg bg-azure-50 p-3">
                         <p className="text-sm text-azure-800">
                           <span className="font-semibold">Coach Thompson:</span> Thanks for sending your highlight reel.
@@ -149,7 +149,7 @@ export default function LandingPage() {
                       </div>
                       <div className="rounded-lg bg-azure-50 p-3">
                         <p className="text-sm text-azure-800">
-                          <span className="font-semibold">Coach Williams:</span> We're impressed with your stats. Are
+                          <span className="font-semibold">Coach Williams:</span> We're impressed with your recent success. Are
                           you available for a campus visit next month?
                         </p>
                         <div className="mt-2 flex items-center gap-2">
