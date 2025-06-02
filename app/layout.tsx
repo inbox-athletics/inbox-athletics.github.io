@@ -6,6 +6,7 @@ import { GA_MEASUREMENT_ID } from "@/lib/gtag"
 import "./globals.css"
 import { Analytics } from '@/components/analytics'
 import { Toaster } from '@/components/ui/toaster'
+import {Footer} from "@/components/footer";
 
 const schibstedGrotesk = Schibsted_Grotesk({
   subsets: ["latin"],
@@ -128,7 +129,10 @@ export default function RootLayout({
           }}
         />
         <Analytics />
-        {children}
+        <div className="flex min-h-screen flex-col">
+          {children}
+          <Footer />
+        </div>
         <Toaster />
       </body>
     </html>
