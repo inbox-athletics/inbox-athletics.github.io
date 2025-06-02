@@ -1,30 +1,22 @@
 # Inbox Athletics landing page
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
-
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/michael-2785s-projects/v0-inbox-athletics-landing-page)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/cTT0ZhvBzfe)
+[![Deploy Status](https://github.com/inbox-athletics/inbox-athletics.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/inbox-athletics/inbox-athletics.github.io/actions)
 
 ## Overview
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+This repository was originally developed using `v0.dev`, but was moved to the Inbox Athletics organization and updated 
+outside of the chat interface.
 
 ## Deployment
 
-Your project is live at:
+The site is automatically deployed to GitHub Pages when changes are pushed to the `main` branch. The deployment process 
+is handled by the `deploy` GitHub Action workflow, which:
 
-**[https://vercel.com/michael-2785s-projects/v0-inbox-athletics-landing-page](https://vercel.com/michael-2785s-projects/v0-inbox-athletics-landing-page)**
+1. Checks out the repository
+2. Sets up PNPM and Node.js
+3. Installs dependencies
+4. Runs type checking
+5. Builds the site
+6. Uploads and deploys the built files to GitHub Pages
 
-## Build your app
-
-Continue building your app on:
-
-**[https://v0.dev/chat/projects/cTT0ZhvBzfe](https://v0.dev/chat/projects/cTT0ZhvBzfe)**
-
-## How It Works
-
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+The deployment process is fully automated and requires no manual intervention. You can view the deployment status and history in the Actions tab of this repository.
