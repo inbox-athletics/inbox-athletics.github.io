@@ -50,9 +50,6 @@ jobs:
       - name: Type check
         run: pnpm type-check
 
-      - name: Add custom domain (CNAME)
-        run: echo "${{secrets.CNAME_DOMAIN}}" > out/CNAME
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
