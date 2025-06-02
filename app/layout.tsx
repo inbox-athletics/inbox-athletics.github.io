@@ -1,7 +1,10 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Schibsted_Grotesk } from "next/font/google"
+import Script from "next/script"
+import { GA_MEASUREMENT_ID } from "@/lib/gtag"
 import "./globals.css"
+import { Analytics } from '@/components/analytics'
 
 const schibstedGrotesk = Schibsted_Grotesk({
   subsets: ["latin"],
@@ -82,12 +85,8 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-  },
   category: "technology",
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -108,7 +107,28 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/inbox-athletics-square-500x500.png" />
         <link rel="manifest" href="/manifest.json" />
       </head>
-      <body className={schibstedGrotesk.className}>{children}</body>
+      <body className={schibstedGrotesk.className}>
+        {/* Google Analytics Scripts */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', '${GA_MEASUREMENT_ID}');
+            `,
+          }}
+        />
+        <Analytics />
+        {children}
+      </body>
     </html>
   )
 }
