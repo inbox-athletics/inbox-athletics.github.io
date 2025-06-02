@@ -327,7 +327,7 @@ export default function LandingPage() {
                         <p className="text-2xl font-bold text-azure-600">High</p>
                       </div>
                     </div>
-                    <div className="mt-4 space-y-2">
+                    <div className="mt-2 space-y-2">
                       <h4 className="font-medium text-azure-900">Today's Action Items</h4>
                       <ul className="space-y-2">
                         <li className="flex items-center gap-2 rounded-lg border border-azure-100 p-2">
