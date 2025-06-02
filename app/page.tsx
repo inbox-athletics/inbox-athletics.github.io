@@ -4,7 +4,7 @@ import type React from "react"
 
 import { ArrowRight, CheckCircle, MessageSquare, Star, Trophy, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import WaitlistForm from "@/components/waitlist-form"
+import { WaitlistForm } from "@/components/waitlist-form"
 import { smoothScrollTo } from "@/lib/utils"
 
 export default function LandingPage() {
