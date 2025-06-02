@@ -5,6 +5,7 @@ import Script from "next/script"
 import { GA_MEASUREMENT_ID } from "@/lib/gtag"
 import "./globals.css"
 import { Analytics } from '@/components/analytics'
+import { Toaster } from '@/components/ui/toaster'
 
 const schibstedGrotesk = Schibsted_Grotesk({
   subsets: ["latin"],
@@ -128,6 +129,7 @@ export default function RootLayout({
         />
         <Analytics />
         {children}
+        <Toaster />
       </body>
     </html>
   )
