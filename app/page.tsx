@@ -63,10 +63,9 @@ export default function LandingPage() {
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <img
-              src="/inbox-athletics-logo-250x50.png"
+              src="/inbox-athletics-logo-with-tagline.svg"
               alt="Inbox Athletics - Recruiting Intelligence for Student-Athletes"
               width={250}
-              height={50}
             />
           </div>
           <nav className="hidden md:flex gap-6" role="navigation" aria-label="Main navigation">

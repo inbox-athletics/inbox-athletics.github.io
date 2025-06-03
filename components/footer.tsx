@@ -7,7 +7,7 @@ export function Footer() {
             <div className="container flex flex-col items-center justify-between gap-4 px-4 md:flex-row md:px-6">
                 <div className="flex items-center gap-2">
                     <Link href="/">
-                        <img src="/inbox-athletics-logo-no-tagline-250x40.png" alt="Inbox Athletics" width={250} height={40} />
+                        <img src="/inbox-athletics-logo-without-tagline.svg" alt="Inbox Athletics" width={250} />
                     </Link>
                 </div>
                 <p className="text-center text-sm text-azure-700 md:text-left">
