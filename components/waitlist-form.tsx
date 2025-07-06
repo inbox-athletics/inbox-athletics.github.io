@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { supabase } from '@/lib/supabase'
+import { submitToGoogleForms } from '@/lib/google-forms'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -70,70 +70,30 @@ export function WaitlistForm() {
   const onSubmit = async (data: WaitlistFormData) => {
     setIsSubmitting(true)
     try {
-      console.debug('Checking for existing entry...')
-      const { data: existingEntries, error: checkError } = await supabase
-        .from('wait_list_entries')
-        .select('email')
-        .eq('email', data.email)
+      console.debug('Submitting to Google Forms...')
+      const result = await submitToGoogleForms({
+        full_name: data.full_name,
+        email: data.email,
+        sport: data.sport,
+        graduation_year: data.graduation_year,
+      })
 
-      if (checkError) {
-        console.error('Error checking for existing entry:', checkError)
-        throw checkError
-      }
-
-      if (existingEntries && existingEntries.length > 0) {
+      if (result.success) {
         toast({
-          title: 'Already registered',
-          description: 'This email is already on the waitlist.',
-          variant: 'destructive',
+          title: 'Success!',
+          description: 'You have been added to the waitlist.',
           duration: 5000,
         })
-        return
+        reset()
+      } else {
+        throw new Error(result.message)
       }
-
-      console.debug('Inserting new entry...')
-      const { error: insertError } = await supabase
-        .from('wait_list_entries')
-        .insert({
-          full_name: data.full_name,
-          email: data.email,
-          sport: data.sport,
-          graduation_year: data.graduation_year,
-        })
-
-      if (insertError) {
-        console.error('Insert error details:', {
-          code: insertError.code,
-          message: insertError.message,
-          details: insertError.details,
-          hint: insertError.hint
-        })
-        throw insertError
-      }
-
-      toast({
-        title: 'Success!',
-        description: 'You have been added to the waitlist.',
-        duration: 5000,
-      })
-
-      reset()
     } catch (error: any) {
-      console.error('Full error details:', {
-        error,
-        message: error.message,
-        code: error.code,
-        details: error.details,
-        hint: error.hint
-      })
+      console.error('Error submitting to Google Forms:', error)
       
       let errorMessage = 'Something went wrong. Please try again.'
       
-      if (error.code === '401') {
-        errorMessage = 'Authentication error. Please check your Supabase configuration.'
-      } else if (error.code === '23505') { // Unique violation
-        errorMessage = 'This email is already registered.'
-      } else if (error instanceof Error) {
+      if (error instanceof Error) {
         errorMessage = error.message
       }
 
