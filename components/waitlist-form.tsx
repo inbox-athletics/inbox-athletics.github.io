@@ -4,53 +4,16 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { submitToGoogleForms } from '@/lib/google-forms'
+import { submitToLoops } from '@/lib/loops'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 import { useToast } from '@/hooks/use-toast'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
 
-const currentYear = new Date().getFullYear()
-const graduationYears = Array.from({ length: 8 }, (_, i) => currentYear + i)
-
-const sports = [
-  'Baseball',
-  'Basketball',
-  'Cross Country',
-  'Field Hockey',
-  'Football',
-  'Golf',
-  'Hockey',
-  'Lacrosse',
-  'Soccer',
-  'Swimming',
-  'Tennis',
-  'Track & Field',
-  'Volleyball',
-  'Wrestling',
-  'Other',
-] as const
-
-const waitlistSchema = z.object({
-  full_name: z.string().min(2, 'Name must be at least 2 characters'),
+const earlyAccessSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
-  sport: z.enum(sports, {
-    errorMap: () => ({ message: 'Please select a sport' }),
-  }),
-  graduation_year: z.number({
-    required_error: 'Please select a graduation year',
-    invalid_type_error: 'Please select a graduation year',
-  }).int().min(currentYear).max(currentYear + 7),
 })
 
-type WaitlistFormData = z.infer<typeof waitlistSchema>
+type EarlyAccessFormData = z.infer<typeof earlyAccessSchema>
 
 export function WaitlistForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -60,28 +23,20 @@ export function WaitlistForm() {
     register,
     handleSubmit,
     reset,
-    setValue,
-    trigger,
     formState: { errors },
-  } = useForm<WaitlistFormData>({
-    resolver: zodResolver(waitlistSchema),
+  } = useForm<EarlyAccessFormData>({
+    resolver: zodResolver(earlyAccessSchema),
   })
 
-  const onSubmit = async (data: WaitlistFormData) => {
+  const onSubmit = async (data: EarlyAccessFormData) => {
     setIsSubmitting(true)
     try {
-      console.debug('Submitting to Google Forms...')
-      const result = await submitToGoogleForms({
-        full_name: data.full_name,
-        email: data.email,
-        sport: data.sport,
-        graduation_year: data.graduation_year,
-      })
+      const result = await submitToLoops({ email: data.email })
 
       if (result.success) {
         toast({
-          title: 'Success!',
-          description: 'You have been added to the waitlist.',
+          title: "You're in!",
+          description: "Check your inbox — we'll send early access details soon.",
           duration: 5000,
         })
         reset()
@@ -89,10 +44,10 @@ export function WaitlistForm() {
         throw new Error(result.message)
       }
     } catch (error: any) {
-      console.error('Error submitting to Google Forms:', error)
-      
+      console.error('Error submitting early access form:', error)
+
       let errorMessage = 'Something went wrong. Please try again.'
-      
+
       if (error instanceof Error) {
         errorMessage = error.message
       }
@@ -108,100 +63,28 @@ export function WaitlistForm() {
     }
   }
 
-  const handleSportChange = async (value: string) => {
-    setValue('sport', value as any)
-    await trigger('sport')
-  }
-
-  const handleGraduationYearChange = async (value: string) => {
-    setValue('graduation_year', parseInt(value, 10))
-    await trigger('graduation_year')
-  }
-
   return (
-    <>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        <div className="space-y-2">
-          <Label htmlFor="full_name">Full Name</Label>
-          <Input
-            id="full_name"
-            {...register('full_name')}
-            disabled={isSubmitting}
-          />
-          {errors.full_name && (
-            <p className="text-sm text-red-500">{errors.full_name.message}</p>
-          )}
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="email">Email</Label>
-          <Input
-            type="email"
-            id="email"
-            {...register('email')}
-            disabled={isSubmitting}
-          />
-          {errors.email && (
-            <p className="text-sm text-red-500">{errors.email.message}</p>
-          )}
-        </div>
-
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div className="space-y-2">
-            <Label htmlFor="sport">Sport</Label>
-            <Select
-              onValueChange={handleSportChange}
-              disabled={isSubmitting}
-            >
-              <SelectTrigger id="sport">
-                <SelectValue placeholder="Select a sport" />
-              </SelectTrigger>
-              <SelectContent>
-                {sports.map((sport) => (
-                  <SelectItem key={sport} value={sport}>
-                    {sport}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            {errors.sport && (
-              <p className="text-sm text-red-500">{errors.sport.message}</p>
-            )}
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="graduation_year">Graduation Year</Label>
-            <Select
-              onValueChange={handleGraduationYearChange}
-              disabled={isSubmitting}
-            >
-              <SelectTrigger id="graduation_year">
-                <SelectValue placeholder="Select a year" />
-              </SelectTrigger>
-              <SelectContent>
-                {graduationYears.map((year) => (
-                  <SelectItem key={year} value={year.toString()}>
-                    {year}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            {errors.graduation_year && (
-              <p className="text-sm text-red-500">
-                {errors.graduation_year.message}
-              </p>
-            )}
-          </div>
-        </div>
-
-        <Button
-          type="submit"
-          className="w-full bg-azure-600 hover:bg-azure-700"
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3 sm:flex-row sm:gap-2">
+      <div className="flex-1">
+        <Input
+          type="email"
+          id="email"
+          placeholder="you@example.com"
+          {...register('email')}
           disabled={isSubmitting}
-        >
-          {isSubmitting ? 'Submitting...' : 'Join Waitlist'}
-        </Button>
-      </form>
-    </>
+          className="focus-visible:ring-brand-600"
+        />
+        {errors.email && (
+          <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>
+        )}
+      </div>
+      <Button
+        type="submit"
+        className="bg-brand-600 hover:bg-brand-700 text-white shrink-0"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? 'Submitting...' : 'Get Early Access'}
+      </Button>
+    </form>
   )
 }
