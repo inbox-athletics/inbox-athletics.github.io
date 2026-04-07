@@ -1,18 +1,15 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Schibsted_Grotesk } from "next/font/google"
-import Script from "next/script"
-import { GA_MEASUREMENT_ID } from "@/lib/gtag"
+import { Inter } from "next/font/google"
 import "./globals.css"
-import { Analytics } from '@/components/analytics'
+import { PostHogProvider } from '@/components/posthog-provider'
 import { Toaster } from '@/components/ui/toaster'
-import {Footer} from "@/components/footer";
 
-const schibstedGrotesk = Schibsted_Grotesk({
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500", "600", "700"],
-  variable: "--font-schibsted-grotesk",
+  variable: "--font-inter",
 })
 
 export const metadata: Metadata = {
@@ -21,13 +18,13 @@ export const metadata: Metadata = {
     template: "%s | Inbox Athletics",
   },
   description:
-    "A recruiting productivity platform that helps high school student-athletes manage communication with college coaches. Get smart reminders, drafts, and action items to stay proactive in your recruiting journey.",
+    "The recruiting journey is stressful — Inbox Athletics helps student-athletes and their families stay organized, follow up on time, and communicate with coaches confidently.",
   keywords: [
     "athletic recruiting",
     "college recruiting",
     "student athlete",
     "recruiting platform",
-    "college coaches",
+    "coaches",
     "recruiting communication",
     "high school athletics",
     "recruiting productivity",
@@ -57,7 +54,7 @@ export const metadata: Metadata = {
     url: "https://www.inboxathletics.com",
     title: "Inbox Athletics | Recruiting Intelligence for Student-Athletes",
     description:
-      "A recruiting productivity platform that helps high school student-athletes manage communication with college coaches. Get smart reminders, drafts, and action items to stay proactive in your recruiting journey.",
+      "The recruiting journey is stressful — Inbox Athletics helps student-athletes and their families stay organized, follow up on time, and communicate with coaches confidently.",
     siteName: "Inbox Athletics",
     images: [
       {
@@ -72,7 +69,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Inbox Athletics | Recruiting Intelligence for Student-Athletes",
     description:
-      "A recruiting productivity platform that helps high school student-athletes manage communication with college coaches.",
+      "The recruiting journey is stressful — Inbox Athletics helps student-athletes and their families stay organized, follow up on time, and communicate with coaches confidently.",
     images: ["/og-image.png"],
     creator: "@inboxathletics",
   },
@@ -88,7 +85,6 @@ export const metadata: Metadata = {
     },
   },
   category: "technology",
-  generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -97,41 +93,23 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${schibstedGrotesk.variable} scroll-smooth`}>
+    <html lang="en" className={`${inter.variable} scroll-smooth`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <meta name="theme-color" content="#063674" />
+        <link rel="dns-prefetch" href="https://us.i.posthog.com" />
+        <meta name="theme-color" content="#2563EB" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Inbox Athletics" />
+        <link rel="icon" type="image/svg+xml" href="/inbox-athletics-icon.svg" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
       </head>
-      <body className={schibstedGrotesk.className}>
-        {/* Google Analytics Scripts */}
-        <Script
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-
-              gtag('config', '${GA_MEASUREMENT_ID}');
-            `,
-          }}
-        />
-        <Analytics />
+      <body className={inter.className}>
+        <PostHogProvider />
         <div className="flex min-h-screen flex-col">
           {children}
-          <Footer />
         </div>
         <Toaster />
       </body>
