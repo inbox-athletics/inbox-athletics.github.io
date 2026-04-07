@@ -2,7 +2,7 @@ import { WaitlistForm } from "@/components/waitlist-form"
 
 export function FinalCTA() {
   return (
-    <section id="waitlist" className="w-full py-16 md:py-24 bg-brand-600">
+    <section id="cta" className="w-full py-16 md:py-24 bg-brand-600">
       <div className="container px-4 md:px-6">
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
           <div className="flex flex-col justify-center space-y-6">
@@ -16,9 +16,9 @@ export function FinalCTA() {
           <div className="flex items-center justify-center">
             <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-xl space-y-4">
               <div>
-                <h3 className="text-xl font-bold text-text-primary">Get Early Access</h3>
+                <h3 className="text-xl font-bold text-text-primary">Stay in the loop</h3>
                 <p className="text-sm text-text-secondary mt-1">
-                  Enter your email and we&apos;ll send you an invite.
+                  Get recruiting tips and early updates.
                 </p>
               </div>
               <WaitlistForm />

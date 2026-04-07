@@ -4,6 +4,7 @@ import Link from "next/link"
 import { useState } from "react"
 import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { TrackedCTA } from "@/components/tracked-cta"
 import {
   Sheet,
   SheetContent,
@@ -60,11 +61,17 @@ export function Header() {
               </Link>
             )
           )}
-          <Button className="bg-brand-600 hover:bg-brand-700 text-white">
-            <Link href="#waitlist" onClick={(e) => handleNavClick(e, "waitlist")}>
-              Get Early Access
-            </Link>
-          </Button>
+          <TrackedCTA
+            label="header_sign_in"
+            className="text-sm font-medium text-text-primary hover:text-brand-600 transition-colors"
+          >
+            Sign In
+          </TrackedCTA>
+          <TrackedCTA label="header_get_started">
+            <Button className="bg-brand-600 hover:bg-brand-700 text-white">
+              Get Started
+            </Button>
+          </TrackedCTA>
         </nav>
 
         <Sheet open={open} onOpenChange={setOpen}>
@@ -97,11 +104,17 @@ export function Header() {
                   </Link>
                 )
               )}
-              <Button className="bg-brand-600 hover:bg-brand-700 text-white w-full">
-                <Link href="#waitlist" onClick={(e) => handleNavClick(e, "waitlist")}>
-                  Get Early Access
-                </Link>
-              </Button>
+              <TrackedCTA
+                label="mobile_sign_in"
+                className="text-base font-medium text-text-primary hover:text-brand-600 transition-colors"
+              >
+                Sign In
+              </TrackedCTA>
+              <TrackedCTA label="mobile_get_started">
+                <Button className="bg-brand-600 hover:bg-brand-700 text-white w-full">
+                  Get Started
+                </Button>
+              </TrackedCTA>
             </nav>
           </SheetContent>
         </Sheet>
