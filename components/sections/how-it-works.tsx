@@ -73,7 +73,7 @@ export function HowItWorks() {
                       muted
                       loop
                       playsInline
-                      aria-label={step.imageAlt}
+                      aria-hidden="true"
                       className="w-full h-auto"
                     />
                   ) : (

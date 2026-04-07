@@ -34,7 +34,7 @@ export function Problem() {
           {painPoints.map((point) => (
             <article
               key={point.title}
-              className="flex flex-col items-start space-y-4 rounded-lg border border-[#E2E8F0] bg-white p-6"
+              className="flex flex-col items-start space-y-4 rounded-lg border border-border bg-white p-6"
             >
               <h3 className="text-xl font-semibold text-text-primary flex items-center gap-2">
                 <point.icon className="h-5 w-5 text-brand-600 shrink-0" />

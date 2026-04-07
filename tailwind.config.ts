@@ -35,6 +35,7 @@ const config = {
         ai: {
           DEFAULT: "#8b5cf6",
           light: "rgba(139,92,246,0.1)",
+          surface: "rgba(139,92,246,0.04)",
           hover: "#7c3aed",
           border: "rgba(139,92,246,0.2)",
         },

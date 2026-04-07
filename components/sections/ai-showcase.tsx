@@ -29,7 +29,7 @@ const features = [
 
 export function AIShowcase() {
   return (
-    <section id="ai-features" className="w-full py-16 md:py-24" style={{ backgroundColor: "rgba(139,92,246,0.04)" }}>
+    <section id="ai-features" className="w-full py-16 md:py-24 bg-ai-surface">
       <div className="container px-4 md:px-6">
         <div className="text-center space-y-4 mb-12">
           <h2 className="text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
@@ -43,11 +43,7 @@ export function AIShowcase() {
           {features.map((feature) => (
             <article
               key={feature.title}
-              className="flex items-start gap-4 rounded-lg border p-6"
-              style={{
-                backgroundColor: "rgba(139,92,246,0.06)",
-                borderColor: "rgba(139,92,246,0.2)",
-              }}
+              className="flex items-start gap-4 rounded-lg border border-ai-border bg-ai-light p-6"
             >
               <div className="space-y-2">
                 <h3 className="text-lg font-semibold text-text-primary flex items-center gap-2">

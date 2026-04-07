@@ -42,7 +42,7 @@ components/
   sections/             # Page sections (header, hero, problem, how-it-works, etc.)
   ui/                   # shadcn/ui primitives
   waitlist-form.tsx     # Early-access email form (Loops integration)
-  tracked-cta.tsx       # CTA link with GA event tracking
+  tracked-cta.tsx       # CTA link with PostHog event tracking
   footer.tsx            # Site footer
 lib/
   loops.ts              # Loops.so API client

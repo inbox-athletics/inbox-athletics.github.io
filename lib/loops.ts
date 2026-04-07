@@ -10,6 +10,14 @@ const LOOPS_FORM_ID = process.env.NEXT_PUBLIC_LOOPS_FORM_ID ?? ""
 export async function submitToLoops(
   data: EarlyAccessData
 ): Promise<{ success: boolean; message: string }> {
+  if (!LOOPS_FORM_ID) {
+    console.error("Loops.so form ID is not configured.")
+    return {
+      success: false,
+      message: "Configuration error. Please contact support.",
+    }
+  }
+
   try {
     const response = await fetch(`${LOOPS_FORM_ENDPOINT}${LOOPS_FORM_ID}`, {
       method: "POST",

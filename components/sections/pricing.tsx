@@ -52,7 +52,7 @@ export function Pricing() {
               className={`rounded-xl bg-white p-8 shadow-lg space-y-6 ${
                 plan.highlighted
                   ? "border-2 border-brand-600"
-                  : "border border-[#E2E8F0]"
+                  : "border border-border"
               }`}
             >
               <div className="space-y-2">
