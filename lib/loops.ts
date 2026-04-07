@@ -19,14 +19,11 @@ export async function submitToLoops(
   }
 
   try {
+    const formBody = new URLSearchParams({ email: data.email })
+
     const response = await fetch(`${LOOPS_FORM_ENDPOINT}${LOOPS_FORM_ID}`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: data.email,
-      }),
+      body: formBody,
     })
 
     if (response.ok) {

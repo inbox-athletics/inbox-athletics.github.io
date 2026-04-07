@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { TrackedCTA } from "@/components/tracked-cta"
 import { smoothScrollTo } from "@/lib/utils"
 
 export function Hero() {
@@ -28,11 +29,11 @@ export function Hero() {
             Inbox Athletics organizes your coach conversations, reminds you to follow up, and helps you communicate like a pro.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
-            <Button size="lg" className="bg-brand-600 hover:bg-brand-700 text-white">
-              <Link href="#waitlist" onClick={(e) => handleClick(e, "waitlist")} className="flex items-center">
-                Get Early Access
-              </Link>
-            </Button>
+            <TrackedCTA label="hero_get_started">
+              <Button size="lg" className="bg-brand-600 hover:bg-brand-700 text-white">
+                Get Started
+              </Button>
+            </TrackedCTA>
             <Button size="lg" variant="outline" className="border-brand-600 text-brand-600 hover:bg-brand-50">
               <Link href="#how-it-works" onClick={(e) => handleClick(e, "how-it-works")} className="flex items-center">
                 See How It Works <ArrowRight className="ml-2 h-4 w-4" />

@@ -83,7 +83,7 @@ export function WaitlistForm() {
         className="bg-brand-600 hover:bg-brand-700 text-white shrink-0"
         disabled={isSubmitting}
       >
-        {isSubmitting ? 'Submitting...' : 'Get Early Access'}
+        {isSubmitting ? 'Submitting...' : 'Stay Updated'}
       </Button>
     </form>
   )

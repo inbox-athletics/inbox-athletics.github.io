@@ -1,9 +1,6 @@
-"use client"
-
-import Link from "next/link"
 import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { smoothScrollTo } from "@/lib/utils"
+import { TrackedCTA } from "@/components/tracked-cta"
 
 const features = [
   "Email Sync & Organization",
@@ -32,11 +29,6 @@ const plans = [
 ]
 
 export function Pricing() {
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    smoothScrollTo("waitlist")
-  }
-
   return (
     <section id="pricing" className="w-full py-16 md:py-24 bg-surface">
       <div className="container px-4 md:px-6">
@@ -71,15 +63,15 @@ export function Pricing() {
                   </li>
                 ))}
               </ul>
-              <Button size="lg" className={`w-full ${
-                plan.highlighted
-                  ? "bg-brand-600 hover:bg-brand-700 text-white"
-                  : "bg-white border border-brand-600 text-brand-600 hover:bg-brand-50"
-              }`}>
-                <Link href="#waitlist" onClick={handleClick}>
-                  Get Early Access
-                </Link>
-              </Button>
+              <TrackedCTA label={`pricing_get_started_${plan.name.toLowerCase()}`} className="block">
+                <Button size="lg" className={`w-full ${
+                  plan.highlighted
+                    ? "bg-brand-600 hover:bg-brand-700 text-white"
+                    : "bg-white border border-brand-600 text-brand-600 hover:bg-brand-50"
+                }`}>
+                  Get Started
+                </Button>
+              </TrackedCTA>
             </div>
           ))}
         </div>
