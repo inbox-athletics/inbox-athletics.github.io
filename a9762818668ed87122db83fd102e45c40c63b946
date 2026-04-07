@@ -1,0 +1,37 @@
+components/sections/dual-audience.tsx
+  9e7e471c2abe43cf 41
+components/sections/pricing.tsx
+  9e7e471c2abe43cf 55
+lib/loops.ts
+  9e7e471c2abe43cf 13-20
+components/sections/problem.tsx
+  9e7e471c2abe43cf 37
+tailwind.config.ts
+  9e7e471c2abe43cf 38
+components/sections/ai-showcase.tsx
+  9e7e471c2abe43cf 32,46
+components/sections/how-it-works.tsx
+  9e7e471c2abe43cf 76
+README.md
+  9e7e471c2abe43cf 45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "a9762818668ed87122db83fd102e45c40c63b946",
+  "prompts": {
+    "9e7e471c2abe43cf": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "68524e4c-444f-4efd-bd78-494a59ed5112",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Michael DeLorenzo",
+      "messages": [],
+      "total_additions": 16,
+      "total_deletions": 11,
+      "accepted_lines": 16,
+      "overriden_lines": 0
+    }
+  }
+}
