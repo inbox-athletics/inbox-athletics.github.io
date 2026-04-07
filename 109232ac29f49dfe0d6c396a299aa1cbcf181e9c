@@ -1,0 +1,39 @@
+README.md
+  9e7e471c2abe43cf 1,5,7,9-24,26-30,32-55,57
+lib/posthog.ts
+  9e7e471c2abe43cf 1-17
+app/layout.tsx
+  9e7e471c2abe43cf 5,100,110
+CLAUDE.md
+  9e7e471c2abe43cf 1-79
+components/tracked-cta.tsx
+  9e7e471c2abe43cf 3,20
+.github/workflows/deploy.yml
+  9e7e471c2abe43cf 49-50
+components/sections/header.tsx
+  9e7e471c2abe43cf 19
+package.json
+  9e7e471c2abe43cf 51
+components/posthog-provider.tsx
+  9e7e471c2abe43cf 1-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "109232ac29f49dfe0d6c396a299aa1cbcf181e9c",
+  "prompts": {
+    "9e7e471c2abe43cf": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "68524e4c-444f-4efd-bd78-494a59ed5112",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Michael DeLorenzo",
+      "messages": [],
+      "total_additions": 172,
+      "total_deletions": 51,
+      "accepted_lines": 166,
+      "overriden_lines": 0
+    }
+  }
+}
