@@ -1,0 +1,35 @@
+components/sections/hero.tsx
+  9e7e471c2abe43cf 6,32-36
+components/sections/header.tsx
+  9e7e471c2abe43cf 7,64-74,107-117
+app/sitemap.ts
+  9e7e471c2abe43cf 46
+components/sections/final-cta.tsx
+  9e7e471c2abe43cf 5,19,21
+lib/loops.ts
+  9e7e471c2abe43cf 22-23,26
+components/sections/pricing.tsx
+  9e7e471c2abe43cf 3,66-74
+components/waitlist-form.tsx
+  9e7e471c2abe43cf 86
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "c03fcba71fe7dd2cbff8e4ee2bb1546befb0942a",
+  "prompts": {
+    "9e7e471c2abe43cf": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "68524e4c-444f-4efd-bd78-494a59ed5112",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Michael DeLorenzo",
+      "messages": [],
+      "total_additions": 91,
+      "total_deletions": 88,
+      "accepted_lines": 62,
+      "overriden_lines": 0
+    }
+  }
+}
