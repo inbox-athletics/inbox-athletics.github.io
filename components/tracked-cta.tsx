@@ -1,6 +1,6 @@
 "use client"
 
-import { event } from "@/lib/gtag"
+import { posthog } from "@/lib/posthog"
 import { cn } from "@/lib/utils"
 
 const APP_URL = "https://app.inboxathletics.com"
@@ -17,8 +17,7 @@ export function TrackedCTA({ children, className, label }: TrackedCTAProps) {
       href={APP_URL}
       className={cn(className)}
       onClick={() =>
-        event({
-          action: "cta_click",
+        posthog.capture("cta_click", {
           category: "conversion",
           label,
         })

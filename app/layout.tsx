@@ -1,10 +1,8 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import Script from "next/script"
-import { GA_MEASUREMENT_ID } from "@/lib/gtag"
 import "./globals.css"
-import { Analytics } from '@/components/analytics'
+import { PostHogProvider } from '@/components/posthog-provider'
 import { Toaster } from '@/components/ui/toaster'
 
 const inter = Inter({
@@ -99,7 +97,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://us.i.posthog.com" />
         <meta name="theme-color" content="#2563EB" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -109,25 +107,7 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className={inter.className}>
-        {/* Google Analytics Scripts */}
-        <Script
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-
-              gtag('config', '${GA_MEASUREMENT_ID}');
-            `,
-          }}
-        />
-        <Analytics />
+        <PostHogProvider />
         <div className="flex min-h-screen flex-col">
           {children}
         </div>

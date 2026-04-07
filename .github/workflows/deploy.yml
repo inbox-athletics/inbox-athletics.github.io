@@ -46,7 +46,8 @@ jobs:
       - name: Build site
         run: pnpm build
         env:
-          NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
+          NEXT_PUBLIC_POSTHOG_KEY: ${{ secrets.NEXT_PUBLIC_POSTHOG_KEY }}
+          NEXT_PUBLIC_POSTHOG_HOST: "https://us.i.posthog.com"
           NEXT_PUBLIC_LOOPS_FORM_ID: ${{ secrets.NEXT_PUBLIC_LOOPS_FORM_ID }}
 
       - name: Upload artifact

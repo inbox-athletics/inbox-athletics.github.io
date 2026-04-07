@@ -13,9 +13,6 @@ export function Footer() {
           &copy; {new Date().getFullYear()} Inbox Athletics. All rights reserved.
         </p>
         <div className="flex gap-4">
-          <Link href="https://guide.inboxathletics.com" className="text-sm text-text-secondary hover:text-brand-600 transition-colors">
-            Guide
-          </Link>
           <Link href="/privacy" className="text-sm text-text-secondary hover:text-brand-600 transition-colors">
             Privacy Policy
           </Link>

@@ -16,7 +16,7 @@ const navLinks: { label: string; id?: string; href?: string }[] = [
   { label: "How It Works", id: "how-it-works" },
   { label: "Pricing", id: "pricing" },
   { label: "FAQ", id: "faq" },
-  { label: "Guide", href: "https://guide.inboxathletics.com" },
+  // { label: "Guide", href: "https://guide.inboxathletics.com" },
 ]
 
 export function Header() {
