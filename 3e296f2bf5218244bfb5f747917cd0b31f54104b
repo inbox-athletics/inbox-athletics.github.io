@@ -1,0 +1,27 @@
+app/globals.css
+  9e7e471c2abe43cf 43-45
+app/privacy/page.tsx
+  9e7e471c2abe43cf 1-2,4-197
+app/terms/page.tsx
+  9e7e471c2abe43cf 1-2,4-217
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.5",
+  "base_commit_sha": "3e296f2bf5218244bfb5f747917cd0b31f54104b",
+  "prompts": {
+    "9e7e471c2abe43cf": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "68524e4c-444f-4efd-bd78-494a59ed5112",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Michael DeLorenzo",
+      "messages": [],
+      "total_additions": 437,
+      "total_deletions": 172,
+      "accepted_lines": 415,
+      "overriden_lines": 0
+    }
+  }
+}
