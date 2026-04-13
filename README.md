@@ -10,7 +10,7 @@ Marketing and waitlist site for [Inbox Athletics](https://www.inboxathletics.com
 - **Forms:** react-hook-form + Zod validation
 - **Waitlist:** Loops.so
 - **Analytics:** PostHog
-- **Hosting:** Cloudflare Pages
+- **Hosting:** Cloudflare Workers (Workers Builds)
 
 ## Getting Started
 
@@ -52,10 +52,11 @@ public/
 
 ## Deployment
 
-Hosted on [Cloudflare Pages](https://pages.cloudflare.com/) (project: `inbox-athletics-marketing`). Cloudflare watches this repo and deploys on every push to `main`; pull requests get automatic preview deployments. Build settings are managed in the Cloudflare Pages dashboard:
+Hosted on [Cloudflare Workers](https://workers.cloudflare.com/) via [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/) (project: `inbox-athletics-marketing`). Cloudflare watches this repo and deploys on every push to `main`; pull requests get automatic preview deployments. Build settings are managed in the Cloudflare dashboard and in `wrangler.jsonc`:
 
 - **Build command:** `pnpm build`
-- **Build output:** `out`
-- **Environment variables:** configured in the Pages project settings (see table above)
+- **Deploy command:** `pnpm dlx wrangler deploy`
+- **Static assets:** `./out` (see `wrangler.jsonc`)
+- **Environment variables:** configured in the Worker project settings (see table above)
 
 Pull requests also run a GitHub Actions check (`.github/workflows/pull-request-check.yml`) that type-checks and builds the site independently of the Cloudflare preview.
