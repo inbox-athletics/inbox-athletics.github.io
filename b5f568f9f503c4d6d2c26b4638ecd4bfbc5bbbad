@@ -1,0 +1,27 @@
+404.html
+  5b013459a4821267 1-24
+index.html
+  5b013459a4821267 1-24
+robots.txt
+  5b013459a4821267 1-2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "b5f568f9f503c4d6d2c26b4638ecd4bfbc5bbbad",
+  "prompts": {
+    "5b013459a4821267": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "473c3472-9bdb-45a8-81e9-73403dbeac61",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Michael DeLorenzo",
+      "messages": [],
+      "total_additions": 57,
+      "total_deletions": 0,
+      "accepted_lines": 57,
+      "overriden_lines": 0
+    }
+  }
+}
