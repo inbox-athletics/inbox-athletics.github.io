@@ -1,7 +1,5 @@
 # Inbox Athletics — Marketing Site
 
-[![Deploy Status](https://github.com/inbox-athletics/inbox-athletics.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/inbox-athletics/inbox-athletics.github.io/actions)
-
 Marketing and waitlist site for [Inbox Athletics](https://www.inboxathletics.com) — a recruiting productivity platform that helps student-athletes and their families organize coach conversations, follow up on time, and communicate confidently.
 
 ## Tech Stack
@@ -12,7 +10,7 @@ Marketing and waitlist site for [Inbox Athletics](https://www.inboxathletics.com
 - **Forms:** react-hook-form + Zod validation
 - **Waitlist:** Loops.so
 - **Analytics:** PostHog
-- **Hosting:** GitHub Pages
+- **Hosting:** Cloudflare Pages
 
 ## Getting Started
 
@@ -54,4 +52,10 @@ public/
 
 ## Deployment
 
-Pushes to `main` trigger the GitHub Actions workflow which type-checks, builds, and deploys to GitHub Pages automatically.
+Hosted on [Cloudflare Pages](https://pages.cloudflare.com/) (project: `inbox-athletics-marketing`). Cloudflare watches this repo and deploys on every push to `main`; pull requests get automatic preview deployments. Build settings are managed in the Cloudflare Pages dashboard:
+
+- **Build command:** `pnpm build`
+- **Build output:** `out`
+- **Environment variables:** configured in the Pages project settings (see table above)
+
+Pull requests also run a GitHub Actions check (`.github/workflows/pull-request-check.yml`) that type-checks and builds the site independently of the Cloudflare preview.
