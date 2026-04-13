@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Marketing and waitlist site for Inbox Athletics. Static Next.js site deployed to Cloudflare Pages (project: `inbox-athletics-marketing`). Cloudflare watches `main` and auto-deploys on push; PRs get preview deployments. A GitHub Actions PR check runs type-check + build independently.
+Marketing and waitlist site for Inbox Athletics. Static Next.js site deployed to Cloudflare Workers via Workers Builds (project: `inbox-athletics-marketing`). Cloudflare watches `main` and auto-deploys on push; PRs get preview deployments. A GitHub Actions PR check runs type-check + build independently.
 
 ## Commands
 
