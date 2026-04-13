@@ -1,0 +1,31 @@
+package.json
+  3d7861063fd920d8 51,70-71
+.github/workflows/pull-request-check.yml
+  3d7861063fd920d8 32-35
+wrangler.jsonc
+  3d7861063fd920d8 1-9
+CLAUDE.md
+  3d7861063fd920d8 5
+README.md
+  3d7861063fd920d8 13,55-61
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "ea8e45d86591dd8bd347046adc468b69836f19ee",
+  "prompts": {
+    "3d7861063fd920d8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dadd92e6-4999-45da-90aa-10cc362012e8",
+        "model": "<synthetic>"
+      },
+      "human_author": "Michael DeLorenzo",
+      "messages": [],
+      "total_additions": 25,
+      "total_deletions": 83,
+      "accepted_lines": 25,
+      "overriden_lines": 0
+    }
+  }
+}
