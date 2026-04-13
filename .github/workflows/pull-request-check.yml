@@ -28,10 +28,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build site
-        run: pnpm build
-        env:
-          NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
-
       - name: Check TypeScript types
         run: pnpm type-check
+
+      - name: Build site
+        run: pnpm build
