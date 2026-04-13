@@ -1,0 +1,24 @@
+wrangler.jsonc
+  3d7861063fd920d8 1-4,7-9,15
+  5b013459a4821267 5-6,10-14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "4d3294c23095b1741cca04eadb22fd2d9955d63c",
+  "prompts": {
+    "5b013459a4821267": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "473c3472-9bdb-45a8-81e9-73403dbeac61",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Michael DeLorenzo",
+      "messages": [],
+      "total_additions": 7,
+      "total_deletions": 1,
+      "accepted_lines": 7,
+      "overriden_lines": 0
+    }
+  }
+}
